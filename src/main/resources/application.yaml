@@ -1,0 +1,38 @@
+debug: false
+management:
+  endpoints:
+    web.exposure.include: "*"
+
+logging:
+  level:
+    app.board: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/2207_board_db
+    username: test
+    password: dreamy
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate.format_sql: true
+      hibernate.default_batch_fetch_size: 100
+  h2.console.enabled: true
+  sql.init.mode: always
+
+---
+
+spring:
+  config.activate.on-profile: testdb
+  datasource:
+    url: jdbc:h2:mem:board;mode=mariadb
+    driver-class-name: org.h2.Driver
+  sql.init.mode: always
+  # @AutoConfigureTestDatabase(replace = NONE) 전역 설정
+  test.database.replace: none
