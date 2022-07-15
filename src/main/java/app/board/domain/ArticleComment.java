@@ -37,7 +37,7 @@ public class ArticleComment {
     private String content; // 본문
 
     @CreatedBy
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, updatable = false, length = 100)
     private String createdBy; // 생성자
 
     @LastModifiedBy
@@ -45,7 +45,7 @@ public class ArticleComment {
     private String updatedBy; // 수정자
 
     @CreatedDate
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt; // 생성 날짜
 
     @LastModifiedDate

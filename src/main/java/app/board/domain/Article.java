@@ -48,7 +48,7 @@ public class Article {
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
     @CreatedBy
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, updatable = false, length = 100)
     private String createdBy; // 생성자
 
     @LastModifiedBy
@@ -56,7 +56,7 @@ public class Article {
     private String updatedBy; // 수정자
 
     @CreatedDate
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt; // 생성 날짜
 
     @LastModifiedDate
