@@ -23,7 +23,6 @@ spring:
     properties:
       hibernate.format_sql: true
       hibernate.default_batch_fetch_size: 100
-  h2.console.enabled: true
   sql.init.mode: always
 
 ---
@@ -32,7 +31,10 @@ spring:
   config.activate.on-profile: testdb
   datasource:
     url: jdbc:h2:mem:board;mode=mariadb
+    username: sa
+    password:
     driver-class-name: org.h2.Driver
+  h2.console.enabled: true
   sql.init.mode: always
   # @AutoConfigureTestDatabase(replace = NONE) 전역 설정
   test.database.replace: none
